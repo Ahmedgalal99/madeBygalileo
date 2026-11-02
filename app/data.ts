@@ -12,7 +12,7 @@ export const profile = {
 };
 
 /* ───────────── Featured case studies (the laptop) ───────────── */
-
+//
 export type CaseStudy = {
   id: "tam" | "rasid" | "moc";
   name: Text;
@@ -33,7 +33,10 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "tam",
     name: { en: "TAM", ar: "تام" },
-    kind: { en: "event & ticketing · seat booking", ar: "منصة فعاليات وتذاكر · حجز مقاعد" },
+    kind: {
+      en: "event & ticketing · seat booking",
+      ar: "منصة فعاليات وتذاكر · حجز مقاعد",
+    },
     what: {
       en: "Jovial — an event & ticketing platform built at TAM. Browse events, pick tickets, choose your exact seat.",
       ar: "جوفيال — منصة فعاليات وتذاكر بُنيت في تام: تصفّح الفعاليات، اختر التذاكر، وحدّد مقعدك بالضبط.",
@@ -52,12 +55,18 @@ export const caseStudies: CaseStudy[] = [
       en: "One reusable component library behind every booking screen in the product.",
       ar: "مكتبة مكوّنات واحدة خلف كل شاشات الحجز في المنتج.",
     },
-    note: { en: "the seat map was the fun part", ar: "خريطة المقاعد كانت الجزء الممتع" },
+    note: {
+      en: "the seat map was the fun part",
+      ar: "خريطة المقاعد كانت الجزء الممتع",
+    },
   },
   {
     id: "rasid",
     name: { en: "RASID", ar: "راصد" },
-    kind: { en: "payments platform · fintech", ar: "منصة مدفوعات · تقنية مالية" },
+    kind: {
+      en: "payments platform · fintech",
+      ar: "منصة مدفوعات · تقنية مالية",
+    },
     what: {
       en: "A Central Bank–licensed payments company — a bilingual public site and the admin dashboard behind it.",
       ar: "شركة مدفوعات مرخّصة من البنك المركزي — موقع تعريفي ثنائي اللغة ولوحة التحكم التي تقف خلفه.",
@@ -82,7 +91,10 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "moc",
     name: { en: "MoC", ar: "وزارة التجارة" },
-    kind: { en: "content creators platform · government", ar: "منصة صُنّاع المحتوى · حكومي" },
+    kind: {
+      en: "content creators platform · government",
+      ar: "منصة صُنّاع المحتوى · حكومي",
+    },
     what: {
       en: "A Saudi Ministry of Commerce platform connecting content creators with the Ministry's awareness campaigns.",
       ar: "منصة لوزارة التجارة السعودية تربط صُنّاع المحتوى بحملات الوزارة التوعوية.",
@@ -177,9 +189,15 @@ export const experience: Chapter[] = [
     years: { en: "2017 — 2022", ar: "2017 — 2022" },
     company: { en: "Mansoura University", ar: "جامعة المنصورة" },
     spine: { en: "MANSOURA", ar: "المنصورة" },
-    role: { en: "B.Sc. Statistics & Computer Science", ar: "بكالوريوس الإحصاء وعلوم الحاسب" },
+    role: {
+      en: "B.Sc. Statistics & Computer Science",
+      ar: "بكالوريوس الإحصاء وعلوم الحاسب",
+    },
     where: { en: "Faculty of Science", ar: "كلية العلوم" },
-    summary: { en: "Where the statistics met the code.", ar: "حيث التقى الإحصاء بالبرمجة." },
+    summary: {
+      en: "Where the statistics met the code.",
+      ar: "حيث التقى الإحصاء بالبرمجة.",
+    },
     color: "var(--ink)",
     h: 90,
   },
