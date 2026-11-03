@@ -10,6 +10,7 @@ import {
   JetBrains_Mono,
   Lalezar,
 } from "next/font/google";
+import { WhatsApp } from "../components/WhatsApp";
 import { getDict, hasLocale, locales } from "../i18n";
 import "../globals.css";
 
@@ -67,7 +68,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const fonts = [display, sans, hand, mono, brand, arDisplay, arBody, arHand].map((f) => f.variable).join(" ");
   return (
     <html lang={lang} dir={getDict(lang).dir} className={`${fonts} antialiased`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsApp label={getDict(lang).contact.whatsappAria} />
+      </body>
     </html>
   );
 }

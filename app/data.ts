@@ -9,6 +9,8 @@ export const profile = {
   email: "a.galal.dev99@gmail.com",
   linkedin: "https://www.linkedin.com/in/ahmedgalaldev",
   github: "https://github.com/Ahmedgalal99",
+  phone: "+20 100 408 4914",
+  whatsapp: "https://wa.me/201004084914",
 };
 
 /* ───────────── Featured case studies (the laptop) ───────────── */

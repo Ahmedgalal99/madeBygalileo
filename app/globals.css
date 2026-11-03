@@ -3235,3 +3235,37 @@ a.obj:focus-visible .ring {
     margin-inline-start: auto;
   }
 }
+
+/* ───────────── Floating WhatsApp button ───────────── */
+.wa-fab {
+  position: fixed;
+  bottom: 20px;
+  inset-inline-end: 20px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.wa-fab:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.wa-fab:focus-visible {
+  outline: 3px solid var(--tomato);
+  outline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .wa-fab {
+    bottom: 16px;
+    inset-inline-end: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}

@@ -5,6 +5,7 @@ export function Contact({ t }: { t: Dict }) {
   const c = t.contact;
   const links = [
     { label: c.labels.email, value: profile.email, href: `mailto:${profile.email}`, external: false },
+    { label: c.labels.whatsapp, value: profile.phone, href: profile.whatsapp, external: true },
     { label: c.labels.linkedin, value: profile.linkedin.replace(/^https?:\/\/(www\.)?/, ""), href: profile.linkedin, external: true },
     { label: c.labels.github, value: profile.github.replace(/^https?:\/\//, ""), href: profile.github, external: true },
   ];

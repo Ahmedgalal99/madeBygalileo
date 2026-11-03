@@ -183,7 +183,8 @@ export const en = {
     object: "The Phone",
     q: "Got something in mind?",
     a: "Let's build it.",
-    labels: { email: "Email", linkedin: "LinkedIn", github: "GitHub" },
+    labels: { email: "Email", whatsapp: "WhatsApp", linkedin: "LinkedIn", github: "GitHub" },
+    whatsappAria: "Chat on WhatsApp",
     who: "Ahmed Galal",
     replies: "usually replies within a day",
     bubbles: [
