@@ -39,8 +39,8 @@ export type Project = {
   outcome: Text;
   frontend: string[];
   backend: string[];
-  /** What the server side does — APIs, data, auth, admin. */
-  backendNote: Text;
+  /** What the server side does — APIs, data, auth, admin. Omitted for frontend-only work. */
+  backendNote?: Text;
   tags: Tag[];
   url?: string;
   home?: boolean;
@@ -342,12 +342,8 @@ export const projects: Project[] = [
       ar: "حضور احترافي يحوّل الزيارات إلى اتصالات — بلمسة واحدة من أي مكان في الموقع.",
     },
     frontend: ["HTML5", "SCSS", "Bootstrap", "jQuery"],
-    backend: ["Node.js", "Express", "MongoDB"],
-    backendNote: {
-      en: "Contact, consultation and job-application forms post to an Express API that validates the input, stores it in MongoDB and notifies the firm by email.",
-      ar: "نماذج التواصل والاستشارات وطلبات التوظيف تُرسل إلى واجهة Express تتحقق من البيانات وتحفظها في MongoDB وتُخطر المكتب بالبريد.",
-    },
-    tags: ["fullstack", "rtl", "responsive", "api"],
+    backend: [],
+    tags: ["rtl", "responsive"],
   },
   {
     slug: "alhumaidi",
@@ -465,12 +461,8 @@ export const projects: Project[] = [
       ar: "صفحة سريعة ومركّزة لهدف واحد: تحويل بحث عاجل إلى مكالمة.",
     },
     frontend: ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
-    backend: ["Node.js", "Express", "MongoDB"],
-    backendNote: {
-      en: "A small Express + MongoDB backend runs the key and remote store — products, stock and orders — plus the inbox for chat requests.",
-      ar: "نظام خلفي صغير بـ Express وMongoDB يشغّل متجر المفاتيح والريموتات — المنتجات والمخزون والطلبات — وصندوق طلبات المحادثة.",
-    },
-    tags: ["fullstack", "rtl", "landing", "responsive", "admin"],
+    backend: [],
+    tags: ["rtl", "landing", "responsive"],
   },
   {
     slug: "billing",
@@ -752,12 +744,8 @@ export const projects: Project[] = [
       ar: "صفحة منتج مرتبة وثنائية اللغة تُبقي كل زائر على بُعد لمسة من التحميل.",
     },
     frontend: ["HTML5", "SCSS", "Bootstrap", "JavaScript"],
-    backend: ["Node.js", "Express"],
-    backendNote: {
-      en: "A small Node.js + Express service handles the contact form and serves app links and screenshots from one config, so updates need no code.",
-      ar: "خدمة صغيرة بـ Node.js وExpress تعالج نموذج التواصل وتقدّم روابط التطبيق ولقطاته من إعداد واحد، فلا تحتاج التحديثات إلى كود.",
-    },
-    tags: ["fullstack", "bilingual", "darkmode", "app", "api"],
+    backend: [],
+    tags: ["bilingual", "darkmode", "app"],
   },
   {
     slug: "fixup",
@@ -793,12 +781,8 @@ export const projects: Project[] = [
       ar: "صفحة هبوط بثقة صندوق العدّة — دليل واضح وإجراء واضح.",
     },
     frontend: ["HTML5", "SCSS", "Bootstrap", "JavaScript"],
-    backend: ["Node.js", "Express", "MongoDB"],
-    backendNote: {
-      en: "The landing page reads its live numbers and services from the app's Express + MongoDB API, so the site always matches the app.",
-      ar: "تقرأ صفحة الهبوط أرقامها الحية وخدماتها من واجهة Express وMongoDB الخاصة بالتطبيق، ليبقى الموقع مطابقاً للتطبيق دائماً.",
-    },
-    tags: ["fullstack", "rtl", "landing", "app", "api"],
+    backend: [],
+    tags: ["rtl", "landing", "app"],
   },
   {
     slug: "nashmi",
@@ -834,12 +818,8 @@ export const projects: Project[] = [
       ar: "واجهة موثوقة للتطبيق، مبنية للجوال أولاً لجمهور يتسوّق من هاتفه.",
     },
     frontend: ["HTML5", "SCSS", "Bootstrap", "JavaScript"],
-    backend: ["Node.js", "Express", "MongoDB"],
-    backendNote: {
-      en: "Live offers on the page come from the app's Express + MongoDB API, so the landing page shows the same livestock and prices as the app.",
-      ar: "العروض الحية في الصفحة تأتي من واجهة Express وMongoDB الخاصة بالتطبيق، لتعرض صفحة الهبوط نفس الذبائح والأسعار التي في التطبيق.",
-    },
-    tags: ["fullstack", "rtl", "landing", "app", "api"],
+    backend: [],
+    tags: ["rtl", "landing", "app"],
   },
 ];
 

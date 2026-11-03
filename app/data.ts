@@ -16,7 +16,7 @@ export const profile = {
 /* ───────────── Featured case studies (the laptop) ───────────── */
 //
 export type CaseStudy = {
-  id: "tam" | "rasid" | "moc";
+  id: "tickets" | "rag" | "moc";
   name: Text;
   kind: Text;
   what: Text;
@@ -33,15 +33,15 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "tam",
-    name: { en: "TAM", ar: "تام" },
+    id: "tickets",
+    name: { en: "Ticketing System", ar: "نظام التذاكر" },
     kind: {
       en: "event & ticketing · seat booking",
       ar: "منصة فعاليات وتذاكر · حجز مقاعد",
     },
     what: {
-      en: "Jovial — an event & ticketing platform built at TAM. Browse events, pick tickets, choose your exact seat.",
-      ar: "جوفيال — منصة فعاليات وتذاكر بُنيت في تام: تصفّح الفعاليات، اختر التذاكر، وحدّد مقعدك بالضبط.",
+      en: "Jovial — an event & ticketing platform. Browse events, pick tickets, choose your exact seat.",
+      ar: "جوفيال — منصة فعاليات وتذاكر: تصفّح الفعاليات، اختر التذاكر، وحدّد مقعدك بالضبط.",
     },
     role: {
       en: "Built the booking experience end to end, including a drag-and-drop seat-map builder shipped as a reusable component library.",
@@ -63,32 +63,31 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
-    id: "rasid",
-    name: { en: "RASID", ar: "راصد" },
+    id: "rag",
+    name: { en: "RAG System", ar: "نظام RAG" },
     kind: {
-      en: "payments platform · fintech",
-      ar: "منصة مدفوعات · تقنية مالية",
+      en: "AI knowledge assistant · retrieval-augmented generation",
+      ar: "مساعد معرفي بالذكاء الاصطناعي · توليد معزّز بالاسترجاع",
     },
     what: {
-      en: "A Central Bank–licensed payments company — a bilingual public site and the admin dashboard behind it.",
-      ar: "شركة مدفوعات مرخّصة من البنك المركزي — موقع تعريفي ثنائي اللغة ولوحة التحكم التي تقف خلفه.",
+      en: "An assistant that answers questions from a company's own documents — every answer grounded in the source, with citations.",
+      ar: "مساعد يجيب عن الأسئلة من مستندات الشركة نفسها — كل إجابة مبنية على المصدر ومعها الاستشهادات.",
     },
     role: {
-      en: "Owned the dashboard front end: payment tracking, transaction monitoring, reporting, role-based views and exportable reports.",
-      ar: "تولّيت الواجهة الأمامية للوحة التحكم: تتبّع المدفوعات، مراقبة العمليات، التقارير، صلاحيات حسب الدور وتقارير قابلة للتصدير.",
+      en: "Built the chat interface with streaming answers and clickable sources, plus the ingestion pipeline: upload, chunking, embeddings and vector search.",
+      ar: "بنيت واجهة المحادثة بإجابات متدفقة ومصادر قابلة للنقر، ومسار إدخال المستندات: الرفع، التقسيم، التضمينات والبحث المتجهي.",
     },
-    stack: ["React", "Next.js", "TypeScript"],
-    backend: ["REST APIs", "Nest.js", "MongoDB"],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind"],
+    backend: ["Node.js", "Nest.js", "PostgreSQL + pgvector", "LLM API"],
     challenge: {
-      en: "Real-time financial data, role-based views and strict compliance — on screens that stay quick to scan.",
-      ar: "بيانات مالية لحظية وصلاحيات متعددة والتزام صارم بالمعايير — على شاشات تبقى سهلة القراءة.",
+      en: "Answers people can trust — the right passages retrieved, no made-up facts, and a source behind every sentence.",
+      ar: "إجابات يمكن الوثوق بها — استرجاع المقاطع الصحيحة، بلا معلومات مختلقة، ومصدر خلف كل جملة.",
     },
     outcome: {
-      en: "A dashboard the operations team relies on, plus clean API contracts agreed with the Nest.js backend team.",
-      ar: "لوحة تحكم يعتمد عليها فريق العمليات، وعقود API واضحة مع فريق Nest.js.",
+      en: "Hours of searching through PDFs turned into a single question, answered in seconds with the page to prove it.",
+      ar: "ساعات من البحث في ملفات PDF تحوّلت إلى سؤال واحد، يُجاب عنه في ثوانٍ ومعه الصفحة التي تثبته.",
     },
-    note: { en: "every number had to add up", ar: "كل رقم يجب أن يكون صحيحاً" },
-    url: "https://rasidpayments.com.sa",
+    note: { en: "show your sources", ar: "اذكر مصادرك" },
   },
   {
     id: "moc",

@@ -116,8 +116,8 @@ export function Laptop() {
         <rect key={y} x={48 + (i % 3 === 2 ? 10 : 0)} y={y} width={i % 2 ? 44 : 56} height={6} rx={3} fill={C.ink} opacity={0.18} />
       ))}
       {[
-        { x: 140, c: C.mustard, l: "TAM" },
-        { x: 230, c: C.sage, l: "RASID" },
+        { x: 140, c: C.mustard, l: "TICKETS" },
+        { x: 230, c: C.sage, l: "RAG" },
         { x: 320, c: C.pink, l: "JOO" },
       ].map((f) => (
         <g key={f.l} transform={`translate(${f.x} 60)`}>

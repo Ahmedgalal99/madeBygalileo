@@ -120,6 +120,7 @@ export const en = {
     scope: "Scope",
     role: "My role",
     roleValue: "Full-stack development — the interface, the API and the data behind it, from design to production.",
+    roleValueFront: "Frontend development — the interface, from design to a responsive, production-ready build.",
     platforms: "Delivered for",
     platformsValue: "Desktop · Laptop · Mobile",
     stack: "Built with",

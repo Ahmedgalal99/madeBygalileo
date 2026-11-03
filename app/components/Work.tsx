@@ -6,7 +6,7 @@ import { SectionHead } from "./SectionHead";
 
 const thin = { ...ink, strokeWidth: 2 } as const;
 
-function TamScene() {
+function TicketsScene() {
   const seats: ReactNode[] = [];
   const rows = "ABCDEF";
   for (let r = 0; r < 6; r++) {
@@ -29,13 +29,13 @@ function TamScene() {
     );
   }
   return (
-    <svg viewBox="0 0 640 400" role="img" aria-label="Illustration of the TAM seat map with one seat selected">
+    <svg viewBox="0 0 640 400" role="img" aria-label="Illustration of the ticketing seat map with one seat selected">
       <rect width={640} height={400} fill={C.screen} />
       <rect width={640} height={44} fill={C.paper2} />
       <text x={22} y={30} className="f-display" fontSize={22} fontWeight={800} fill={C.ink}>
-        TAM
+        JOVIAL
       </text>
-      <text x={84} y={28} className="f-mono" fontSize={11} fill={C.ink} opacity={0.7}>
+      <text x={124} y={28} className="f-mono" fontSize={11} fill={C.ink} opacity={0.7}>
         Hall B · Thu 14:00
       </text>
       <rect x={514} y={12} width={108} height={22} rx={11} fill="none" stroke={C.tomato} strokeWidth={2} />
@@ -75,93 +75,78 @@ function TamScene() {
   );
 }
 
-function RasidScene() {
-  const bars = [38, 62, 46, 80, 70, 104, 92];
+/** RAG — documents become vectors, a question pulls the closest chunks, the answer cites them. */
+function RagScene() {
+  const dots = [
+    [70, 300], [96, 326], [122, 296], [148, 334], [84, 352], [134, 362], [176, 306], [168, 350], [110, 276],
+  ];
+  const hits = [2, 6];
   return (
-    <svg viewBox="0 0 640 400" role="img" aria-label="Illustration of a RASID payment: card, confirmation and receipt">
+    <svg viewBox="0 0 640 400" role="img" aria-label="Illustration of a RAG assistant answering a question with cited sources">
       <rect width={640} height={400} fill={C.screen} />
-      <g transform="rotate(-8 170 160)">
-        <rect x={66} y={96} width={236} height={148} rx={16} fill={C.ink} opacity={0.15} transform="translate(6 8)" />
-        <rect x={66} y={96} width={236} height={148} rx={16} fill={C.mustard} {...ink} />
-        <rect x={88} y={136} width={40} height={30} rx={5} fill={C.paper2} {...thin} />
-        <path d="M88 151 H128 M108 136 V166" {...thin} opacity={0.5} />
-        <text x={88} y={124} className="f-display" fontSize={20} fontWeight={800} fill={C.ink}>
-          RASID
-        </text>
-        <text x={88} y={204} className="f-mono" fontSize={15} fontWeight={700} letterSpacing={2} fill={C.ink}>
-          •••• 4021
-        </text>
-        <circle cx={262} cy={214} r={13} fill={C.tomato} opacity={0.9} />
-        <circle cx={278} cy={214} r={13} fill={C.ink} opacity={0.6} />
-      </g>
-      <path
-        d="M300 150 C330 120 330 120 352 132"
-        fill="none"
-        stroke={C.ink}
-        strokeWidth={2.5}
-        strokeDasharray="5 7"
-        strokeLinecap="round"
-      />
-      <circle cx={378} cy={152} r={34} fill={C.sage} {...ink} />
-      <path d="M362 152 L374 164 L396 140" fill="none" stroke={C.ink} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
-      <path
-        d="M402 172 C418 186 424 176 436 168"
-        fill="none"
-        stroke={C.ink}
-        strokeWidth={2.5}
-        strokeDasharray="5 7"
-        strokeLinecap="round"
-      />
 
-      <g transform="translate(446 34) rotate(3)">
-        <path
-          d="M0 0 H160 V300 L148 290 L136 300 L124 290 L112 300 L100 290 L88 300 L76 290 L64 300 L52 290 L40 300 L28 290 L16 300 L0 290 Z"
-          fill={C.paper}
-          {...ink}
-        />
-        <text x={80} y={32} textAnchor="middle" className="f-mono" fontSize={13} fontWeight={800} letterSpacing={3} fill={C.ink}>
-          PAYMENT
-        </text>
-        <text x={80} y={50} textAnchor="middle" className="f-mono" fontSize={10} fill={C.ink} opacity={0.6}>
-          ref RS-20931
-        </text>
-        <path d="M14 66 H146" stroke={C.ink} strokeWidth={1.5} strokeDasharray="3 4" />
-        {[
-          ["Subtotal", "1,180.00"],
-          ["Fee", "60.00"],
-        ].map(([k, v], i) => (
-          <g key={k} className="f-mono" fontSize={11} fill={C.ink}>
-            <text x={14} y={92 + i * 22}>
-              {k}
+      {/* the documents */}
+      {[0, 1, 2].map((i) => (
+        <g key={i} transform={`translate(${44 + i * 14} ${40 + i * 12}) rotate(${-6 + i * 4})`}>
+          <path d="M0 0 H104 L124 20 V150 H0 Z" fill={i === 2 ? C.paper : C.paper2} {...thin} />
+          <path d="M104 0 V20 H124" fill="none" {...thin} />
+          {i === 2 &&
+            [34, 50, 66, 82, 98, 114].map((y, k) => (
+              <rect key={y} x={14} y={y} width={k % 3 === 2 ? 60 : 96} height={6} rx={3} fill={k === 2 ? C.mustard : C.ink} opacity={k === 2 ? 1 : 0.3} />
+            ))}
+          {i === 2 && (
+            <text x={14} y={22} className="f-mono" fontSize={10} fontWeight={700} fill={C.ink}>
+              policy.pdf
             </text>
-            <text x={146} y={92 + i * 22} textAnchor="end">
-              {v}
-            </text>
-          </g>
-        ))}
-        <path d="M14 132 H146" stroke={C.ink} strokeWidth={1.5} strokeDasharray="3 4" />
-        <text x={14} y={156} className="f-mono" fontSize={12} fontWeight={800} fill={C.ink}>
-          Total
-        </text>
-        <text x={146} y={156} textAnchor="end" className="f-mono" fontSize={12} fontWeight={800} fill={C.ink}>
-          1,240.00
-        </text>
-        <g transform="translate(80 214) rotate(-12)">
-          <rect x={-56} y={-22} width={112} height={44} rx={6} fill="none" stroke={C.tomato} strokeWidth={3} />
-          <text textAnchor="middle" y={7} className="f-mono" fontSize={18} fontWeight={800} letterSpacing={3} fill={C.tomato}>
-            PAID
+          )}
+        </g>
+      ))}
+
+      {/* the vector store */}
+      <path d="M118 222 V262" stroke={C.ink} strokeWidth={2} strokeDasharray="4 6" strokeLinecap="round" />
+      <rect x={44} y={262} width={160} height={116} rx={12} fill="none" {...thin} />
+      {dots.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={hits.includes(i) ? 8 : 6} fill={hits.includes(i) ? C.tomato : C.sky} {...thin} />
+      ))}
+      <text x={124} y={396} textAnchor="middle" className="f-mono" fontSize={10} letterSpacing={2} fill={C.ink} opacity={0.6}>
+        VECTORS
+      </text>
+      <path d="M184 306 C230 300 240 250 262 236" fill="none" stroke={C.tomato} strokeWidth={2.5} strokeDasharray="5 7" strokeLinecap="round" />
+
+      {/* the chat */}
+      <rect x={262} y={28} width={352} height={344} rx={14} fill={C.paper} {...ink} />
+      <rect x={262} y={28} width={352} height={40} rx={14} fill={C.paper2} />
+      <path d="M262 68 H614" {...thin} />
+      <text x={282} y={54} className="f-display" fontSize={18} fontWeight={800} fill={C.ink}>
+        Ask the docs
+      </text>
+      <circle cx={588} cy={48} r={7} fill={C.sage} {...thin} />
+
+      <rect x={392} y={88} width={204} height={44} rx={12} fill={C.ink} />
+      <text x={408} y={115} className="f-mono" fontSize={12} fill={C.paper}>
+        How many leave days?
+      </text>
+
+      <rect x={280} y={152} width={268} height={122} rx={12} fill={C.screen} {...thin} />
+      {[176, 196, 216].map((y, k) => (
+        <rect key={y} x={296} y={y} width={k === 2 ? 150 : 232} height={8} rx={4} fill={C.ink} opacity={0.55} />
+      ))}
+      {["[1] p.4", "[2] p.12"].map((c, k) => (
+        <g key={c} transform={`translate(${296 + k * 86} 238)`}>
+          <rect width={76} height={22} rx={11} fill={C.mustard} {...thin} />
+          <text x={38} y={15} textAnchor="middle" className="f-mono" fontSize={10} fontWeight={700} fill={C.ink}>
+            {c}
           </text>
         </g>
-      </g>
+      ))}
 
-      <g transform="translate(70 270)">
-        <path d="M0 110 H300" {...thin} />
-        {bars.map((h, i) => (
-          <rect key={i} x={10 + i * 40} y={110 - h} width={24} height={h} fill={i === 5 ? C.tomato : C.forest} {...thin} />
-        ))}
-      </g>
-      <text x={350} y={372} className="f-hand" fontSize={22} fill={C.ink}>
-        ← this week
+      <rect x={280} y={318} width={262} height={36} rx={18} fill="none" {...thin} />
+      <rect x={296} y={333} width={90} height={6} rx={3} fill={C.ink} opacity={0.25} />
+      <circle cx={576} cy={336} r={18} fill={C.tomato} {...thin} />
+      <path d="M569 336 H582 M577 330 L583 336 L577 342" fill="none" stroke={C.paper} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+
+      <text x={444} y={300} className="f-hand" fontSize={20} fill={C.ink}>
+        ↑ every claim, sourced
       </text>
     </svg>
   );
@@ -239,8 +224,8 @@ function MocScene() {
 }
 
 const SCENES: Record<CaseStudy["id"], () => ReactNode> = {
-  tam: TamScene,
-  rasid: RasidScene,
+  tickets: TicketsScene,
+  rag: RagScene,
   moc: MocScene,
 };
 

@@ -56,6 +56,7 @@ export function CaseStudy({ p, lang, t }: { p: Project; lang: Lang; t: Dict }) {
   const prev = projects[(i - 1 + projects.length) % projects.length];
   const next = projects[(i + 1) % projects.length];
   const name = p.name[lang];
+  const hasBackend = p.backend.length > 0;
 
   return (
     <article className="case" style={{ "--accent": p.accent } as CSSProperties}>
@@ -97,10 +98,12 @@ export function CaseStudy({ p, lang, t }: { p: Project; lang: Lang; t: Dict }) {
               <dt>{c.frontend}</dt>
               <dd dir="ltr">{p.frontend.join(" · ")}</dd>
             </div>
-            <div>
-              <dt>{c.backend}</dt>
-              <dd dir="ltr">{p.backend.join(" · ")}</dd>
-            </div>
+            {hasBackend && (
+              <div>
+                <dt>{c.backend}</dt>
+                <dd dir="ltr">{p.backend.join(" · ")}</dd>
+              </div>
+            )}
           </dl>
         </div>
       </header>
@@ -129,21 +132,25 @@ export function CaseStudy({ p, lang, t }: { p: Project; lang: Lang; t: Dict }) {
         <aside className="case-side">
           <div className="case-card">
             <p className="case-card-label">{c.role}</p>
-            <p>{c.roleValue}</p>
+            <p>{hasBackend ? c.roleValue : c.roleValueFront}</p>
             <p className="case-card-label">{c.frontend}</p>
             <ul className="chips" dir="ltr">
               {p.frontend.map((s) => (
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="case-card-label">{c.backend}</p>
-            <ul className="chips" dir="ltr">
-              {p.backend.map((s) => (
-                <li key={s} className="chip-be">
-                  {s}
-                </li>
-              ))}
-            </ul>
+            {hasBackend && (
+              <>
+                <p className="case-card-label">{c.backend}</p>
+                <ul className="chips" dir="ltr">
+                  {p.backend.map((s) => (
+                    <li key={s} className="chip-be">
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             <p className="case-card-label">{c.scope}</p>
             <ul className="case-tags">
               {p.tags.map((tag) => (
@@ -177,17 +184,19 @@ export function CaseStudy({ p, lang, t }: { p: Project; lang: Lang; t: Dict }) {
               ))}
             </ol>
           </section>
-          <section className="case-block rv">
-            <h2>
-              <span>03</span>
-              {c.under}
-            </h2>
-            <p>{p.backendNote[lang]}</p>
-            <Architecture p={p} t={t} />
-          </section>
+          {hasBackend && p.backendNote && (
+            <section className="case-block rv">
+              <h2>
+                <span>03</span>
+                {c.under}
+              </h2>
+              <p>{p.backendNote[lang]}</p>
+              <Architecture p={p} t={t} />
+            </section>
+          )}
           <section className="case-block case-result rv">
             <h2>
-              <span>04</span>
+              <span>{hasBackend ? "04" : "03"}</span>
               {c.outcome}
             </h2>
             <p>{p.outcome[lang]}</p>
